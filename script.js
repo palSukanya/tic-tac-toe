@@ -3,6 +3,7 @@ let reset = document.querySelector("#b1");
 let newGame = document.querySelector("#b2");
 let msghide = document.querySelector(".msg-hide");
 let msg = document.querySelector("#msg");
+let con = document.querySelector(".container");
 let turnX= true;
 let count = 0;
 msghide.classList.add("hide");
@@ -21,6 +22,8 @@ const resetGame = () => {
     count = 0;
     enableBoxes();
     msghide.classList.add("hide");
+    con.classList.remove("hide");
+    reset.classList.remove("hide");
   };
 boxes.forEach((box) => {
     box.addEventListener("click", () => {
@@ -44,6 +47,8 @@ boxes.forEach((box) => {
 const gameDraw = () => {
     msg.innerText = `Game was a Draw.`;
     msghide.classList.remove("hide");
+    con.classList.add("hide");
+    reset.classList.add("hide");
     disableBoxes();
   };
   const disableBoxes = () => {
@@ -61,6 +66,8 @@ const gameDraw = () => {
   const showWinner = (winner) => {
     msg.innerText = `Congratulations, Winner is ${winner}`;
     msghide.classList.remove("hide");
+    con.classList.add("hide");
+    reset.classList.add("hide");
     disableBoxes();
   };
   const checkWinner = () => {
